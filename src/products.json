@@ -1,0 +1,19 @@
+[
+    {
+      "id": "0",
+      "heading": "iPhone X",
+      "price": "800"
+    }, {
+      "id": "1",
+      "heading": "iPhone 7",
+      "price": "600"
+    }, {
+      "id": "2",
+      "heading": "iPhone 6",
+      "price": "400"
+    }, {
+      "id": "3",
+      "heading": "iPhone original",
+      "price": "50"
+    }
+  ]
