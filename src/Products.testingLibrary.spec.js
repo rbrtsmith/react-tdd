@@ -6,7 +6,6 @@ import axios from 'axios';
 
 import Products from './Products';
 import store from './store';
-import { first } from 'glamor';
 
 jest.mock('axios');
 

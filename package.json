@@ -17,7 +17,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test:enzyme": "react-scripts test --env=jsdom Products.spec.js",
+    "test:reactTestingLibrary": "react-scripts test --env=jsdom Products.testingLibrary.spec.js",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
@@ -25,5 +26,12 @@
     "enzyme-adapter-react-16": "^1.0.4",
     "react-addons-test-utils": "^15.6.2",
     "react-testing-library": "^4.1.2"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!src/server.js",
+      "!src/index.js"
+    ]
   }
 }
