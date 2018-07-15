@@ -6,6 +6,10 @@ app.use(cors());
 
 app.get('/products', (req, res) => {
   setTimeout(() => {
+    const error = Math.random() > 0.8;
+    if (error) {
+      res.status(500);
+    }
     res.json(require('./products.json'));
   }, 800)
 });

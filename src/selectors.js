@@ -8,6 +8,7 @@ import {
 const selectProducts = state => state.products.list;
 export const selectSortedBy = state => state.products.sortedBy;
 export const selectProductsLoading = state => state.products.loading;
+export const selectProductsError = state => state.products.error;
 export const selectFavouritedProductIds = state => state.products.favourites;
 
 export const selectSortedProducts = createSelector(selectProducts, selectSortedBy, (products, sortedBy) => {

@@ -40,6 +40,18 @@ test('render loading state followed by products', async () => {
   expect(queryByText('iPhone 7')).toBeInTheDOM();
 });
 
+test('render error message if products fail to load', async () => {
+  axios.get.mockReturnValue(new Promise((resolve, reject) => reject('some error')));
+
+  const { queryByText, getByText, debug } = renderComponent();
+
+  expect(queryByText('Loading…')).toBeInTheDOM();
+  expect(queryByText('Failed to load products')).not.toBeInTheDOM();
+
+  await waitForElement(() => getByText('Failed to load products'));
+  expect(queryByText('Failed to load products')).toBeInTheDOM();
+});
+
 test('favourite and unfavourite products', async () => {
   axios.get.mockReturnValue(new Promise(resolve => resolve(products)));
   const { getByText, container } = renderComponent();

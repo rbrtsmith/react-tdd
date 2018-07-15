@@ -1,7 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchProducts, favouriteProduct, unFavouriteProduct, sortProducts } from './actions';
-import { selectProductsLoading, selectSortedProducts, selectFavouritedProductIds, selectSortedBy } from './selectors';
+import {
+  fetchProducts,
+  favouriteProduct,
+  unFavouriteProduct,
+  sortProducts
+} from './actions';
+import {
+  selectProductsLoading,
+  selectProductsError,
+  selectSortedProducts,
+  selectFavouritedProductIds,
+  selectSortedBy
+} from './selectors';
 
 class Products extends Component {
   componentDidMount = () =>
@@ -17,8 +28,15 @@ class Products extends Component {
     this.props.sortProducts(value);
 
   render() {
-    const { loading, products, favourites, sortedBy } = this.props;
+    const {
+      loading,
+      error,
+      products,
+      favourites,
+      sortedBy
+    } = this.props;
     if (loading) return <div data-test-id="loading-products">Loading…</div>
+    if (error) return <div data-test-id="products-error"><span>Failed to load products</span></div>
 
     return (
       <div data-test-id="products">
@@ -50,6 +68,7 @@ class Products extends Component {
 
 const mapStateToProps = state => ({
   loading: selectProductsLoading(state),
+  error: selectProductsError(state),
   products: selectSortedProducts(state),
   favourites: selectFavouritedProductIds(state),
   sortedBy: selectSortedBy(state)
