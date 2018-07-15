@@ -31,14 +31,27 @@ test('render loading state followed by products', async () => {
   const component = render();
 
   expect(component.find('[data-test-id="loading-products"]').text()).toBe('Loading…');
-  expect(component.find('[data-test-id="products"]').exists()).toBe(false)
+  expect(component.find('[data-test-id="products"]').exists()).toBe(false);
 
   await flushAllPromises();
   component.update();
 
   expect(component.find('[data-test-id="product-0"]').text()).toMatch('iPhone X');
   expect(component.find('[data-test-id="product-1"]').text()).toMatch('iPhone 7');
-  expect(component.find('[data-test-id="loading-products"]').exists()).toBe(false)
+  expect(component.find('[data-test-id="loading-products"]').exists()).toBe(false);
+});
+
+test('render error message if products fail to load', async () => {
+  axios.get.mockReturnValue(new Promise((resolve, reject) => reject('some error')));
+
+  const component = render();
+  expect(component.find('[data-test-id="loading-products"]').text()).toBe('Loading…');
+  expect(component.find('[data-test-id="products-error"]').exists()).toBe(false);
+
+  await flushAllPromises();
+  component.update();
+  expect(component.find('[data-test-id="loading-products"]').exists()).toBe(false);
+  expect(component.find('[data-test-id="products-error"]').text()).toBe('Failed to load products');
 });
 
 test('favourite and unfavourite products', async () => {
