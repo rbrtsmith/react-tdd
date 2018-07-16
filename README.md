@@ -7,7 +7,7 @@
 If you decide that selectors are an abstraction too far then you can bring those directly into the component itself and as long as the behaviour that is presented to the user remains consistent then you won't need to update the tests.
 I should also be really easy to completely move away from Redux and use local state without updating tests.
 
->**A good testing strategy will allow you to refactor with confidence and you loose that confidence the moment you make changes to your tests**
+>**A good testing strategy will allow you to refactor with confidence and this is only possible if you can refactor without making changes to tests**
 
 To run Enzyme tests:
 `yarn test:enzyme`
