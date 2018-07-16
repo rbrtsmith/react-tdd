@@ -2,7 +2,7 @@
 
 ![Travis-ci](https://travis-ci.org/rbrtsmith/react-tdd.svg?branch=master) [![Coverage Status](https://coveralls.io/repos/github/rbrtsmith/react-tdd/badge.svg?branch=master)](https://coveralls.io/github/rbrtsmith/react-tdd?branch=master)
 
-**Hint:**  You don't need to test reducers, selectors and actions directly.  You only test the connected component and assert against all the expected behaviours - this will indirectly test the full redux-flow with fewer, easier to maintain tests.
+**Hint:**  You don't need to test reducers, selectors and actions directly.  There's no mock store.  You only test the connected component and assert against all the expected behaviours - this will indirectly test the full redux-flow with fewer, easier to maintain tests.
 
 If you decide that selectors are an abstraction too far then you can bring those directly into the component itself and as long as the behaviour that is presented to the user remains consistent then you won't need to update the tests.
 I should also be really easy to completely move away from Redux and use local state without updating tests.
