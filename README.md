@@ -9,11 +9,13 @@ I should also be really easy to completely move away from Redux and use local st
 
 >**A good testing strategy will allow you to refactor with confidence and this is only possible if you can refactor without making changes to tests**
 
+
+This demonstration has two test suites that cover exactly the same behaviours, one Using [Enzyme](https://github.com/airbnb/enzyme) and the other [React Testing Library](https://github.com/kentcdodds/react-testing-library) as a side-by side comparison.
+
 To run Enzyme tests:
 `yarn test:enzyme`
 
 To run React Testing Library tests:
 `yarn test:reactTestingLibrary`
 
-Both suites give 100% coverage and avoid testing what I'd describe as implementation details.  Using this approach you can refactor with confidence.
-.
+Both suites give 100% coverage and avoid testing what I'd describe as implementation details.  Using this approach you can refactor your implementation with confidence and only have to update the tests if the behaviour the user cares about changes.

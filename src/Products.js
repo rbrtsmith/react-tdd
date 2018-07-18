@@ -36,7 +36,7 @@ class Products extends Component {
       sortedBy
     } = this.props;
     if (loading) return <div data-test-id="loading-products">Loading…</div>
-    if (error) return <div data-test-id="products-error"><span>Failed to load products</span></div>
+    if (error) return <div data-test-id="products-error">Failed to load products</div>
 
     return (
       <div data-test-id="products">

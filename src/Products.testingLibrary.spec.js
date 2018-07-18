@@ -48,7 +48,7 @@ test('render error message if products fail to load', async () => {
   expect(queryByText('Loading…')).toBeInTheDOM();
   expect(queryByText('Failed to load products')).not.toBeInTheDOM();
 
-  await waitForElement(() => getByText('Failed to load products'));
+  await waitForElement(() => getByText('Failed to load products'))
   expect(queryByText('Failed to load products')).toBeInTheDOM();
 });
 
