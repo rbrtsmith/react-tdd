@@ -1,4 +1,4 @@
-# An example of how to test Redux connected React components
+# An example of how to test Redux connected React components with integration tests only
 
 ![Travis-ci](https://travis-ci.org/rbrtsmith/react-tdd.svg?branch=master) [![Coverage Status](https://coveralls.io/repos/github/rbrtsmith/react-tdd/badge.svg?branch=master)](https://coveralls.io/github/rbrtsmith/react-tdd?branch=master)
 
